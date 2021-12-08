@@ -11,6 +11,8 @@ namespace WebApi.Models.Users
         public string Username { get; set; }
         public Role Role { get; set; }
         public string Permissions { get; set; }
+
+        public string Company { get; set; }
         public string JwtToken { get; set; }
 
         public AuthenticateResponse(){}
@@ -23,6 +25,7 @@ namespace WebApi.Models.Users
             Username = user.Username;
             Role = user.Role;
             Permissions = user.Permissions;
+            Company = user.Company;
         }
     }
 }

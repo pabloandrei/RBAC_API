@@ -11,6 +11,7 @@ namespace WebApi.Entities
         public string Username { get; set; }
         public Role Role { get; set; }
         public string Permissions { get; set; }
+        public string Company { get; set; }
 
         [JsonIgnore]
         public string PasswordHash { get; set; }

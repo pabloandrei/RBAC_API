@@ -55,6 +55,7 @@ namespace WebApi.Controllers
 
         [Authorize(Role.Admin,Role.User)]
         [Permission("read:users")]
+        [Company("Energisa")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

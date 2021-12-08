@@ -9,12 +9,12 @@ using WebApi.Entities;
 namespace WebApi.Authorization
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class PermissionAttribute : Attribute, IAuthorizationFilter
+    public class CompanyAttribute : Attribute, IAuthorizationFilter
     {
-        private readonly IList<string> _permissions;
-       public PermissionAttribute(params string[] permissions)
+        private readonly IList<string> _company;
+       public CompanyAttribute(params string[] company)
        {
-           _permissions = permissions ?? new string[] { };
+           _company = company ?? new string[] { };
        }
 
         public void OnAuthorization(AuthorizationFilterContext context)
@@ -26,15 +26,9 @@ namespace WebApi.Authorization
 
             var user = (User)context.HttpContext.Items["User"];
 
-            bool found = false;
-            foreach(string item in user.Permissions.Replace(" ", "").Split(",").ToArray<string>())
-            {
-                found = _permissions.Contains(item);
-                if (found) break;
-            }
 
             // permission
-            if (user == null || (_permissions.Any() && !found))
+            if (user == null || !_company.Contains(user.Company))
             {
                 // not logged in or role not authorized
                 context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };

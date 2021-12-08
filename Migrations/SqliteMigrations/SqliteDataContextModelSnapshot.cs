@@ -38,6 +38,9 @@ namespace WebApi.Migrations.SqliteMigrations
                     b.Property<string>("Permission")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Company")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

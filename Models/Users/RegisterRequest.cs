@@ -21,5 +21,8 @@ namespace WebApi.Models.Users
 
         [Required]
         public string Permissions { get; set; }
+
+        [Required]
+        public string Company { get; set; }
     }
 }

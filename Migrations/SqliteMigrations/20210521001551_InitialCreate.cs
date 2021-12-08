@@ -17,7 +17,8 @@ namespace WebApi.Migrations.SqliteMigrations
                     Username = table.Column<string>(type: "TEXT", nullable: true),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
                     Role = table.Column<string>(type: "TEXT", nullable: true),
-                    Permissions = table.Column<string>(type: "TEXT", nullable: true)
+                    Permissions = table.Column<string>(type: "TEXT", nullable: true),
+                    Company = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
